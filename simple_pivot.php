@@ -98,50 +98,7 @@
 					$return['pivots'] = $outputPivots;
 				}
 				
-				return $return;
-				
-				
-				
-				// if a field to group by has been specified in the dimension map
-				// for the current dimension, use that, otherwise, 
-				// group by the name of the dimension
-				
-				// group the current level by the grouping field
-/*
-				$currentLevel->groupby($currentPivot['field'])
-					
-					// for each grouped at the current level
-					->map(function($nextLevel) use($pivots, $values){
-						
-						// underscore mapping converts an underscore chain object back into arrays
-						// convert it back into a chain object so it can be passed into 
-						// the same function again if need be
-						$chainedNextLevel = __::chain($nextLevel);
-						
-						// if there are no more dimensions, 
-						// this is the last level
-						if(count($pivots) == 0) {
-							
-							// perform all of the reductions necessary on the current level
-							$groupedResults = Simple_Pivot::performReductions($reductions, $chainedNextLevel);
-							
-							
-						} else {
-							
-							// if this isn't the last level
-							// keep recursively calling the function and grouping until we're on the last level
-							$groupedResults = Simple_Pivot::groupAndReduceResults($chainedNextLevel, $dimensions, $reductions);
-							
-						}
-						
-						// return the results as an array
-						// rather than as underscore object
-						// so that it gets mapped correctly
-						return $groupedResults->value();
-						
-					});
-*/
-			
+				return $return;			
 		
 		}
 		
