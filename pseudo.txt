@@ -1,0 +1,113 @@
+$input = array(
+	'data' => array(
+		// all the data to pivot,
+	),
+	'pivots' => array(
+		array(
+			'field' => 'campaign',
+			'set_field' => function($row) {
+				// set the pivot field in the row
+			},
+		),
+		array(
+			'field' => 'target',
+			
+		),
+	),
+	'values' => array(
+		array(
+			'field' => 'clicks',
+			'calc' => 'sum',
+		),
+		array(
+			'field' => 'impressions',
+			'callback_calc' => function($first, ) {
+				// function to calculate
+			},
+		),
+	),
+);
+
+$output = array(
+	'pivots' => array(
+		'campaign1' => array(
+			'name' => 'campaign1',
+			'pivots' => array(
+				'target1' => array(
+					'name' => 'target1',
+					'values' => array(
+						array(
+							'clicks' => 100,
+							'impressions' => 1000,
+							'ctr' => .00005,
+							'fans' => 1000,
+						),
+					),
+				),
+				'target2' => array(
+					'name' => 'target2',
+					'values' => array(
+						array(
+							'clicks' => 100,
+							'impressions' => 1000,
+							'ctr' => .00005,
+							'fans' => 1000,
+						),
+					),
+				),
+			),
+			'values' => array(
+				array(
+					'impressions' => 1000,
+					'clicks' => 100,
+				),
+			),
+		),
+	),
+	'values' => array(
+		'impressions' => 100,
+		'clicks' => 100,
+		'ctr' => 100,
+	),
+);
+
+pivot($data, $details) {
+	
+	confirm $details
+	get the pivots from the details
+	get the values from the details
+	setPivotFields($data, $pivots)
+	convert the data into a underscore object
+	
+}
+
+performAllPivots($data, $pivots, $values) {
+	
+	pull out the first pivot in the pivot array
+	get the field to pivot on
+	$outputPivots = null;
+	$values = calculate the values for the whole pivot
+	if this is not the last level
+		
+		$pivots = group data on field
+			
+			map grouped data as group of data
+				
+				$pivot = performAllPivots($groupOfData, $pivots, $values);
+				return $pivot
+				
+			end map
+			
+	end if
+	
+	$return['values'] = $values;
+	if($outputPivots) {
+		$return['pivots'] = $outputPivots;
+	}	
+			
+}
+
+
+
+
+
